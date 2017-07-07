@@ -10,12 +10,16 @@ import UIKit
 
 class DataItem {
     var title: String
-    var subtitle: String
+// Subtitle changes ... following line removed
+//  var subtitle: String
     var image: UIImage?
-    
-    init(title: String, subtitle: String, imageName: String?) {
+
+// Subtitle changes ... following line changed
+//  init(title: String, subtitle: String, imageName: String?) {
+    init(title: String, imageName: String?) {
         self.title = title
-        self.subtitle = subtitle
+// Subtitle changes ... following line removed
+//      self.subtitle = subtitle
         if let imageName = imageName {
             if let img = UIImage(named: imageName) {
                 image = img

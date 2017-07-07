@@ -44,9 +44,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.imageView?.image = nil
         } else {
             let item = allItems[indexPath.section][indexPath.row]
-        
+
+            
             cell.textLabel?.text = item.title
-            cell.detailTextLabel?.text = item.subtitle
+// Subtitle changes ... following line commented out
+//          cell.detailTextLabel?.text = item.subtitle
         
             if let imageView = cell.imageView, let itemImage = item.image {
                 imageView.image = itemImage
@@ -71,7 +73,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             allItems[indexPath.section].remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            let newData = DataItem(title: "New Data", subtitle: "", imageName: nil)
+// Subtitle changes ... following line commented out and changed to line following which removed subtitle reference
+//          let newData = DataItem(title: "New Data", subtitle: "", imageName: nil)
+            let newData = DataItem(title: "New Data", imageName: nil)
             allItems[indexPath.section].append(newData)
             tableView.insertRows(at: [indexPath], with: .fade)
         }
@@ -182,9 +186,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         for i in 1...12 {
             if i > 9 {
-                items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "images/img\(i).jpg"))
+// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "images/img\(i).jpg"))
+                items.append(DataItem(title: "Title #\(i)", imageName: "images/img\(i).jpg"))
             } else {
-                items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "images/img0\(i).jpg"))
+// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "images/img0\(i).jpg"))
+                items.append(DataItem(title: "Title #0\(i)", imageName: "images/img0\(i).jpg"))
             }
         }
 
@@ -192,9 +200,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         for i in 1...12 {
             if i > 9 {
-                otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
+// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
+                otherItems.append(DataItem(title: "Another Title #\(i)", imageName: "images/anim\(i).jpg"))
             } else {
-                otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
+// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
+                otherItems.append(DataItem(title: "Another Title #0\(i)", imageName: "images/anim0\(i).jpg"))
             }
         }
         
