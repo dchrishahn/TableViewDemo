@@ -19,6 +19,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var otherItems = [DataItem]()
     var allItems = [[DataItem]]()
 
+// New section change ... added for another section called birds
+    var birdItems = [DataItem]()
+    
+
 // 3 / 10 / 16... numberOfRowsInSection function, then changed later in Multiple Sections ... then changed in Inserting Rows section
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,7 +49,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             let item = allItems[indexPath.section][indexPath.row]
 
-            
+//          cell.textLabel?.text = item.title[indexPath.row]
             cell.textLabel?.text = item.title
 // Subtitle changes ... following line commented out
 //          cell.detailTextLabel?.text = item.subtitle
@@ -188,30 +192,47 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if i > 9 {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "images/img\(i).jpg"))
-                items.append(DataItem(title: "Title #\(i)", imageName: "images/img\(i).jpg"))
+                items.append(DataItem(title: "Land & plant image \(i)", imageName: "images/img\(i).jpg"))
             } else {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "images/img0\(i).jpg"))
-                items.append(DataItem(title: "Title #0\(i)", imageName: "images/img0\(i).jpg"))
+                items.append(DataItem(title: "Land & plant image 0\(i)", imageName: "images/img0\(i).jpg"))
             }
         }
 
 // 8 ... for loops added for images; "anim" added later, in the Multiple Sections portion; included the following 2 allItems statements ...
         
-        for i in 1...12 {
+        for i in 1...10 {
             if i > 9 {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
-                otherItems.append(DataItem(title: "Another Title #\(i)", imageName: "images/anim\(i).jpg"))
+                otherItems.append(DataItem(title: "Mammal image \(i)", imageName: "images/anim\(i).jpg"))
             } else {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
-                otherItems.append(DataItem(title: "Another Title #0\(i)", imageName: "images/anim0\(i).jpg"))
+                otherItems.append(DataItem(title: "Mammal image 0\(i)", imageName: "images/anim0\(i).jpg"))
+            }
+        }
+        
+// New section change ... added for another section of birds ... two animx.jpg's changed to birdx.jpg names, all animx.jpg's renamed sequentially
+        
+        for i in 1...2 {
+            if i > 9 {
+                // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+                //              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
+                birdItems.append(DataItem(title: "Bird image \(i)", imageName: "images/bird\(i).jpg"))
+            } else {
+                // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+                //              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
+                birdItems.append(DataItem(title: "Bird image 0\(i)", imageName: "images/bird0\(i).jpg"))
             }
         }
         
         allItems.append(items)
         allItems.append(otherItems)
+        
+// New section change ... added for another section of birds
+        allItems.append(birdItems)
 
 // 6 ... resize scroll view insets ...
         automaticallyAdjustsScrollViewInsets = false
