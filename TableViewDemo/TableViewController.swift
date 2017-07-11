@@ -187,53 +187,80 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view, typically from a nib.
 
 // 2 ... for loops added for images; "img" one added first ...
+
+    let landNames = ["grassy-plain", "purple-flowers", "grassy-boardwalk", "water-splash", "mountain-lake", "sunset-lake", "red-rocks", "yellow-orange-flower", "leaf-drop", "shady-bench", "tree-path", "sunrise-trees" ]
+    for (index, name) in landNames.enumerated() {
+        items.append(DataItem(title: name, imageName: "images/img\(index + 1).jpg"))
+    }
         
-        for i in 1...12 {
-            if i > 9 {
+//        for i in 1...12 {
+//            if i > 9 {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "images/img\(i).jpg"))
-                items.append(DataItem(title: "Land & plant image \(i)", imageName: "images/img\(i).jpg"))
-            } else {
+//                items.append(DataItem(title: "Land & plant image \(i)", imageName: "images/img\(i).jpg"))
+//            } else {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "images/img0\(i).jpg"))
-                items.append(DataItem(title: "Land & plant image 0\(i)", imageName: "images/img0\(i).jpg"))
-            }
-        }
+//                items.append(DataItem(title: "Land & plant image 0\(i)", imageName: "images/img0\(i).jpg"))
+//            }
+//        }
 
 // 8 ... for loops added for images; "anim" added later, in the Multiple Sections portion; included the following 2 allItems statements ...
         
-        for i in 1...10 {
-            if i > 9 {
+        
+      let mammalNames = ["Squirrel", "Cheetah", "Puppy", "Cat", "Rhino", "Fox", "Lion", "Koala", "Monkey", "Bear" ]
+      for (index, name) in mammalNames.enumerated() {
+          otherItems.append(DataItem(title: name, imageName: "images/anim\(index + 1).jpg"))
+      }
+//        for i in 1...10 {
+//          if i > 9 {
+//            let imgString = "images/anim\(i).jpg"
+//            let newDataItem = DataItem(title: name, imageName: "images/anim\(index + 1).jpg")
+//            otherItems.append(newDataItem)
+
+//            } else {
+//              let imgString = "images/anim0\(i).jpg"
+//              let newDataItem = DataItem(title: name, imageName: imgString)
+//              otherItems.append(newDataItem)
+//           }
+//        }
+//      }
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
-                otherItems.append(DataItem(title: "Mammal image \(i)", imageName: "images/anim\(i).jpg"))
-            } else {
+//              otherItems.append(DataItem(title: "Mammal image \(i)", imageName: "images/anim\(i).jpg"))
+//          } else {
 // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
-                otherItems.append(DataItem(title: "Mammal image 0\(i)", imageName: "images/anim0\(i).jpg"))
-            }
-        }
+//              otherItems.append(DataItem(title: "Mammal image 0\(i)", imageName: "images/anim0\(i).jpg"))
+//          }
+//      }
+        
         
 // New section change ... added for another section of birds ... two animx.jpg's changed to birdx.jpg names, all animx.jpg's renamed sequentially
-        
-        for i in 1...2 {
-            if i > 9 {
-                // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
-                //              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
-                birdItems.append(DataItem(title: "Bird image \(i)", imageName: "images/bird\(i).jpg"))
-            } else {
-                // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
-                //              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
-                birdItems.append(DataItem(title: "Bird image 0\(i)", imageName: "images/bird0\(i).jpg"))
-            }
+
+        let birdNames = ["Penguins", "Baby chick"]
+        for (index, name) in birdNames.enumerated() {
+            birdItems.append(DataItem(title: name, imageName: "images/bird\(index + 1).jpg"))
         }
+
+//        for i in 1...2 {
+//            if i > 9 {
+//              Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
+//              birdItems.append(DataItem(title: "Bird image \(i)", imageName: "images/bird\(i).jpg"))
+//              } else {
+//              Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
+//              birdItems.append(DataItem(title: "Bird image 0\(i)", imageName: "images/bird0\(i).jpg"))
+//            }
+//        }
         
         allItems.append(items)
         allItems.append(otherItems)
         
 // New section change ... added for another section of birds
         allItems.append(birdItems)
-
+        
 // 6 ... resize scroll view insets ...
         automaticallyAdjustsScrollViewInsets = false
 

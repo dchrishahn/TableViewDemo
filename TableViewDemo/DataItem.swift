@@ -9,9 +9,9 @@
 import UIKit
 
 class DataItem {
-//  var title = ["grassy-plain", "purple-flowers", "grassy-boardwalk", "water-splash", "mountain-lake", "sunset-lake", "red-rocks", "yellow-orange-flower", "leaf-drop", "shady-bench", "tree-path", "sunrise-trees", "penguins", "squirrel", "cheetah", "chick", "puppy", "cat", "rhino", "fox", "lion", "koala", "monkey", "bear"]
+//  var title = ["grassy-plain", "purple-flowers", "grassy-boardwalk", "water-splash", "mountain-lake", "sunset-lake", "red-rocks", "yellow-orange-flower", "leaf-drop", "shady-bench", "tree-path", "sunrise-trees", "squirrel", "cheetah", "puppy", "cat", "rhino", "fox", "lion", "koala", "monkey", "bear", "penguins", "chick"]
 
-   var title: String
+ var title: String
 // Subtitle changes ... following line removed
 //  var subtitle: String
     var image: UIImage?
@@ -20,6 +20,7 @@ class DataItem {
 //  init(title: String, subtitle: String, imageName: String?) {
     init(title: String, imageName: String?) {
         self.title = title
+        print(title)
 // Subtitle changes ... following line removed
 //      self.subtitle = subtitle
         if let imageName = imageName {
@@ -29,3 +30,4 @@ class DataItem {
         }
     }
 }
+
