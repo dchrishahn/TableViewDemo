@@ -49,7 +49,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             let item = allItems[indexPath.section][indexPath.row]
 
-//          cell.textLabel?.text = item.title[indexPath.row]
             cell.textLabel?.text = item.title
 // Subtitle changes ... following line commented out
 //          cell.detailTextLabel?.text = item.subtitle
@@ -126,10 +125,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     return true
     }
     
-// 25 ...  moveRowAt override function ... added in Moving Rows section !!!! generates error !!!! tableView not in class base, thus override is not necessary
-//
-// tutor said ... UIViewControllers don’t have a function called `moveRowAtIndexPath`.  UITableViewController is a subclass of UIViewcontroller and it has that function
-// built in by default
+// 25 ...  moveRowAt function ... added in Moving Rows section
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let itemToMove = allItems[sourceIndexPath.section][sourceIndexPath.row]
@@ -186,47 +182,56 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-// 2 ... for loops added for images; "img" one added first ...
+// 2 ... for loops added for images; "img" one added first ... for-loops removed & changed for setting a name to an image in the title
         
-        for i in 1...12 {
-            if i > 9 {
-// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+        let landNames = ["grassy-plain", "purple-flowers", "grassy-boardwalk", "water-splash", "mountain-lake", "sunset-lake", "red-rocks", "yellow-orange-flower", "leaf-drop", "shady-bench", "tree-path", "sunrise-trees" ]
+        for (index, name) in landNames.enumerated() {
+            items.append(DataItem(title: name, imageName: "images/img\(index + 1).jpg"))
+        }
+        
+//        for i in 1...12 {
+//            if i > 9 {
+//          Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              items.append(DataItem(title: "Title #\(i)", subtitle: "This is subtitle #\(i)", imageName: "images/img\(i).jpg"))
-                items.append(DataItem(title: "Land & plant image \(i)", imageName: "images/img\(i).jpg"))
-            } else {
-// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//            } else {
+//          Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              items.append(DataItem(title: "Title #0\(i)", subtitle: "This is subtitle #0\(i)", imageName: "images/img0\(i).jpg"))
-                items.append(DataItem(title: "Land & plant image 0\(i)", imageName: "images/img0\(i).jpg"))
-            }
-        }
+//            }
+//        }
 
-// 8 ... for loops added for images; "anim" added later, in the Multiple Sections portion; included the following 2 allItems statements ...
+// 8 ... for loops added for images; loops replace with below code; "anim" added later, in the Multiple Sections portion; included the following 2 allItems statements ...
+
+        let mammalNames = ["Squirrel", "Cheetah", "Puppy", "Cat", "Rhino", "Fox", "Lion", "Koala", "Monkey", "Bear" ]
+        for (index, name) in mammalNames.enumerated() {
+            otherItems.append(DataItem(title: name, imageName: "images/anim\(index + 1).jpg"))
+        }
         
-        for i in 1...10 {
-            if i > 9 {
-// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//        for i in 1...10 {
+//            if i > 9 {
+//          Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
-                otherItems.append(DataItem(title: "Mammal image \(i)", imageName: "images/anim\(i).jpg"))
-            } else {
-// Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//            } else {
+//          Subtitle changes ... following line commented out and changed to following line which removes subtitle references
 //              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
-                otherItems.append(DataItem(title: "Mammal image 0\(i)", imageName: "images/anim0\(i).jpg"))
-            }
+//            }
+//        }
+        
+// New section change ... added for another section of birds, originally for-loops, then changed ... two animx.jpg's changed to birdx.jpg names, all animx.jpg's renamed sequentially
+        
+        let birdNames = ["Penguins", "Baby chick"]
+        for (index, name) in birdNames.enumerated() {
+            birdItems.append(DataItem(title: name, imageName: "images/bird\(index + 1).jpg"))
         }
         
-// New section change ... added for another section of birds ... two animx.jpg's changed to birdx.jpg names, all animx.jpg's renamed sequentially
-        
-        for i in 1...2 {
-            if i > 9 {
-                // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
-                //              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
-                birdItems.append(DataItem(title: "Bird image \(i)", imageName: "images/bird\(i).jpg"))
-            } else {
-                // Subtitle changes ... following line commented out and changed to following line which removes subtitle references
-                //              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
-                birdItems.append(DataItem(title: "Bird image 0\(i)", imageName: "images/bird0\(i).jpg"))
-            }
-        }
+//        for i in 1...2 {
+//            if i > 9 {
+//          Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              otherItems.append(DataItem(title: "Another Title #\(i)", subtitle: "This is another subtitle #\(i)", imageName: "images/anim\(i).jpg"))
+//          } else {
+//          Subtitle changes ... following line commented out and changed to following line which removes subtitle references
+//              otherItems.append(DataItem(title: "Another Title #0\(i)", subtitle: "This is another subtitle #0\(i)", imageName: "images/anim0\(i).jpg"))
+//            }
+//        }
         
         allItems.append(items)
         allItems.append(otherItems)

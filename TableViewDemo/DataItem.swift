@@ -9,7 +9,6 @@
 import UIKit
 
 class DataItem {
-//  var title = ["grassy-plain", "purple-flowers", "grassy-boardwalk", "water-splash", "mountain-lake", "sunset-lake", "red-rocks", "yellow-orange-flower", "leaf-drop", "shady-bench", "tree-path", "sunrise-trees", "penguins", "squirrel", "cheetah", "chick", "puppy", "cat", "rhino", "fox", "lion", "koala", "monkey", "bear"]
 
    var title: String
 // Subtitle changes ... following line removed
